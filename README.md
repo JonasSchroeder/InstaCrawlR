@@ -23,25 +23,39 @@ USE AT YOUR OWN RISK. BE ETHICAL WITH USER DATA.
     
 What it can do
 
-InstaCrawlR consist of four scripts – jsonReader, hashtagExtractor, graphCreator, and g2gephi – which are described below. InstaCrawlR can be used to download and analyze the most recent posts for any specific hashtag that can be found on Instagram’s Explore page (instagram.com/explore/tags/HASHTAG/). More specifically it can:
+
+InstaCrawlR consist of four scripts – jsonReader, hashtagExtractor, graphCreator, and g2gephi – which are described in the instruction PDF. InstaCrawlR can be used to download and analyze the most recent posts for any specific hashtag that can be found on Instagram’s Explore page (instagram.com/explore/tags/HASHTAG/). More specifically it can:
 
 • Download the most recent posts for any hashtag
+
 • Export a csv file that shows post ID, URL, number of likes, post owner ID, post text,
 and post date
+
 • Automatically extract related hashtags from post text
+
 • Images can be automatically downloaded, too
+
 • Export related hashtags and frequency
+
 • Create a graph showing the relationship of related hashtags (social network analysis)
+
 • Export graph for further analysis in Gephi
+
 
 
 What it can’t
 
 • No specification of a certain timeframe (only most recent)
+
 • No information on who liked the posts (only counter)
+
 • Only post owner ID, not profile name
+
 • Suspicious posts must be filtered out by hand using Excel
+
 • No location information available
+
+Please consult the instructions PDF for details.
 
     
 Closing Words
