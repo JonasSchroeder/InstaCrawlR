@@ -21,7 +21,7 @@ USE AT YOUR OWN RISK. BE ETHICAL WITH USER DATA.
 
 ------------
     
-What it can do
+**What it can do**
 
 
 InstaCrawlR consist of four scripts – jsonReader, hashtagExtractor, graphCreator, and g2gephi – which are described in the instruction PDF. InstaCrawlR can be used to download and analyze the most recent posts for any specific hashtag that can be found on Instagram’s Explore page (instagram.com/explore/tags/HASHTAG/). More specifically it can:
@@ -43,7 +43,7 @@ and post date
 
 
 
-What it can’t
+**What it can’t**
 
 • No specification of a certain timeframe (only most recent)
 
@@ -55,10 +55,10 @@ What it can’t
 
 • No location information available
 
-Please consult the instructions PDF for details.
+_Please consult the instructions PDF for details._
 
     
-Closing Words
+**Closing Words**
 
 You can use the script or parts in your own code. Please note that I am not a professional developer or trained programmer. I am sure InstaCrawlR’s code can be simplified and improved a lot. Feel free to clean up my code or change it to increase its capabilities.
 Again, use the scripts at your own risk. I am not reliable for any consequences. InstaCrawlR may only function for a limited time since Instagram is constantly changing their system. I will not necessarily support InstaCrawlR in the future.
