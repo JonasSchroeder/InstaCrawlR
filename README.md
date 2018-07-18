@@ -1,6 +1,9 @@
 # InstaCrawlR
 Crawl public Instagram data using R scripts without API access token.
 
+Here's an example:
+https://medium.com/@jonas.schroeder1991/social-network-analysis-of-related-hashtags-on-instagram-using-instacrawlr-46c397cb3dbe
+
 Please consult "InstaCrawlR Instructions.pdf" for more information on what InstaCrawlR can and can't do and how to use it.
 
 Jonas
