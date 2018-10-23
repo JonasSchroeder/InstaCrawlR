@@ -1,3 +1,10 @@
+Update October 2018: 
+I added a new script (databaseCreator.R) which enables you to build your own Instagram database that you can use for Social Media Monitoring, comparing and selecting Influencers, or Competitive Analyses. databaseCreator scrapes Instagram based on a list of post URLs for Post Meta Data (text, hashtags, mentions, number of likes and comments) and Profile Meta Data (Author's @handle, number of followers, following, and posts). 
+
+More about databaseCreator in this Medium article.https://medium.com/@jonas.schroeder1991/build-your-own-instagram-database-134281e8ee92
+
+-----------
+
 # InstaCrawlR
 Crawl public Instagram data using R scripts without API access token.
 
