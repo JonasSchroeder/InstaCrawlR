@@ -3,6 +3,7 @@
 # Git Hub: https://github.com/JonasSchroeder/InstaCrawlR
 # Code by Jonas Schröder
 # See ReadME for instructions and examples
+# Last Updated March 2019
 #------------------------------------------------------
 
 library(jsonlite)
@@ -14,7 +15,7 @@ library(utf8)
 #---------------------------------------------------------
 #Download JSON File from Instagram for a specific Hashtag
 #---------------------------------------------------------
-hashtag <- "HASHTAG"
+hashtag <- "sponsored"
 url_start <- str_glue("http://instagram.com/explore/tags/{hashtag}/?__a=1")
 json <- fromJSON(url_start)
 edge_hashtag_to_media <- json$graphql$hashtag$edge_hashtag_to_media
@@ -46,7 +47,7 @@ extractInfo <- function(index){
             assign("post_owner", post_owner, envir = .GlobalEnv)
             getNewPosts(index)
         } else {
-            post_id[index] <- posts[i,2]
+            post_id[index] <- posts[i,5]
             if(length(posts$edge_media_to_caption$edges[[i]][["node"]][["text"]])==0){
                 post_text[index] <- "no-text"
                 print("no text in post")
@@ -55,16 +56,16 @@ extractInfo <- function(index){
                 post_text[index] <- gsub("\n", " ", temp)
             }
 
-            post_time[index] <- toString(as.POSIXct(posts[i,6], origin="1970-01-01"))
-            post_img_url[index] <- posts[i,8]
-            post_likes[index] <- posts[i,10]
-            post_owner[index] <- posts[i,11]
+            post_time[index] <- toString(as.POSIXct(posts[i,7], origin="1970-01-01"))
+            post_img_url[index] <- posts[i,9]
+            post_likes[index] <- posts[i,11]
+            post_owner[index] <- posts[i,12]
             
             #optional: download image
             #img_dir <- str_glue("images/{index}_{hashtag}_post_img.jpg")
             #download.file(posts[i,8], img_dir, mode = 'wb')
             
-            index <- index+1
+            index <- index + 1
         }
     }    
 }
