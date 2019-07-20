@@ -1,3 +1,9 @@
+Update July 2019:
+I can confirm that the scripts still use as intended. As a response to multiple requests on Twitter and LinkedIn I've updated the jsonReader.R script so it exports an additional column (post_URL) that you can directly feed as an input for databaseCreator.R
+
+Update March 2019:
+Instagram seems to change the structure of their response from time to time. I fixed the issue. Read more about it here: https://medium.com/@jonas.schroeder1991/update-instacrawlr-still-crawling-6500cd376ea3
+
 Update October 2018: 
 I added a new script (databaseCreator.R) which enables you to build your own Instagram database that you can use for Social Media Monitoring, comparing and selecting Influencers, or Competitive Analyses. databaseCreator scrapes Instagram based on a list of post URLs for Post Meta Data (text, hashtags, mentions, number of likes and comments) and Profile Meta Data (Author's @handle, number of followers, following, and posts). 
 
