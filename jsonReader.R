@@ -1,10 +1,11 @@
-#------------------------------------------------------
+#------------------------------------------------------------------------
 # Part of InstaCrawlR
 # Git Hub: https://github.com/JonasSchroeder/InstaCrawlR
 # Code by Jonas Schröder
 # See ReadME for instructions and examples
-# Last Updated March 2019
-#------------------------------------------------------
+# Version 3: Additional column for export (post_url based on shortlinks)
+# Last Updated July 2019
+#------------------------------------------------------------------------
 
 library(jsonlite)
 library(stringr)
@@ -27,6 +28,7 @@ posts <- edge_hashtag_to_media$edges$node
 #-----------------------------
 index <- 1
 post_id <- list()
+post_url <- list()
 post_text <- list()
 post_time <- list()
 post_likes <- list()
@@ -43,11 +45,11 @@ extractInfo <- function(index){
             assign("post_text", post_text, envir = .GlobalEnv)
             assign("post_time", post_time, envir = .GlobalEnv)
             assign("post_img_url", post_img_url, envir = .GlobalEnv)
+            assign("post_url", post_url, envir = .GlobalEnv)
             assign("post_likes", post_likes, envir = .GlobalEnv)
             assign("post_owner", post_owner, envir = .GlobalEnv)
             getNewPosts(index)
         } else {
-            post_id[index] <- posts[i,5]
             if(length(posts$edge_media_to_caption$edges[[i]][["node"]][["text"]])==0){
                 post_text[index] <- "no-text"
                 print("no text in post")
@@ -55,7 +57,10 @@ extractInfo <- function(index){
                 temp <- posts$edge_media_to_caption$edges[[i]][["node"]][["text"]]
                 post_text[index] <- gsub("\n", " ", temp)
             }
-
+            
+            post_id_temp <- posts[i,5]
+            post_url[index] <-  str_glue("http://instagram.com/p/{post_id_temp}")
+            post_id[index] <- post_id_temp
             post_time[index] <- toString(as.POSIXct(posts[i,7], origin="1970-01-01"))
             post_img_url[index] <- posts[i,9]
             post_likes[index] <- posts[i,11]
@@ -83,7 +88,7 @@ getNewPosts <- function(index){
     assign("end_cursor", end_cursor, envir = .GlobalEnv)
     assign("posts", posts, envir = .GlobalEnv)
     print(index)
-    Sys.sleep(5)
+    Sys.sleep(1)
     extractInfo(index)
 }
 
@@ -93,8 +98,8 @@ extractInfo(index)
 #-----------------------------
 #Export Dataframe to CSV()
 #-----------------------------
-table <- do.call(rbind.data.frame, Map('c', post_id, post_img_url, post_likes, post_owner, post_text, post_time))
-colnames(table) <- c("ID", "URL", "Likes", "Owner", "Text", "Date")
+table <- do.call(rbind.data.frame, Map('c', post_id, post_url, post_img_url, post_likes, post_owner, post_text, post_time))
+colnames(table) <- c("ID", "Post_URL", "Img_URL", "Likes", "Owner", "Text", "Date")
 time <- Sys.time()
 filename <- str_glue("table-{hashtag}-{time}.csv")
 write.csv(table, filename, fileEncoding = "UTF-8")
