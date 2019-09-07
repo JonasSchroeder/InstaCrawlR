@@ -1,3 +1,6 @@
+Update September 2019:
+The script databaseCreator.R is working again. The previous version stopped working properly some time ago and left the lists mentions, hashtags, and text without values (NULL).
+
 Update July 2019:
 I can confirm that the scripts still use as intended. As a response to multiple requests on Twitter and LinkedIn I've updated the jsonReader.R script so it exports an additional column (post_URL) that you can directly feed as an input for databaseCreator.R
 
