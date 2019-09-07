@@ -3,6 +3,7 @@
 # Git Hub: https://github.com/JonasSchroeder/InstaCrawlR
 # Code by Jonas Schröder
 # See ReadME for instructions and examples
+# Updated September 2019
 #------------------------------------------------------
 
 library(readr)
@@ -43,7 +44,7 @@ extractMetaDataPost <- function(index){
                     post_datetime[index] <- datetime_temp
                 }
                 
-                if(str_sub(source_temp[i], 14, 61) == "script type=\"text/javascript\">window._sharedData"){
+                if(str_sub(source_temp[i], 2, 49) == "script type=\"text/javascript\">window._sharedData"){
                     # Sponsored Post
                     sponsor_temp <- unlist(str_split(source_temp[i], "sponsor")[[1]][3]) 
                     
@@ -320,6 +321,10 @@ matchProfileData <- function(index){
 # German Excel uses ";" as separator -> read_csv2().
 # If your Locale is EN, use read_csv() instead of read_csv2()
 url_post_list <- unlist(read_csv2("instagram_url_test_list.csv"))
+
+# alternative: import csv file from jsonReader.R and use column for post urls
+# import <- read_csv("test.csv") 
+# url_post_list <- import$Post_URL
 
 # Optional: Take a Subset for Sampling / Testing (e.g., last 50 entries)
 # url_post_list <- tail(url_post_list, 50)
