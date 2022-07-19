@@ -12,11 +12,11 @@ text <- list()
 htemp <- list()
 htags <- data.frame()
 data <- read.csv("table-HASHTAG-cleared.csv", sep = ";")
-data <- as.matrix(data[-1])
+data <- as.matrix(data)
 
 maxrows <- nrow(data)
 for(i in 1:maxrows){
-    text[i] <- as.character(data[i,5])
+    text[i] <- as.character(data[i,1])
     htemp <- str_extract_all(text[i], "#\\S+", TRUE)
     
     if(ncol(htemp) != 0){

@@ -12,6 +12,7 @@ library(stringr)
 library("jpeg")
 library(tidyr)
 library(utf8)
+library(curl)
 
 #---------------------------------------------------------
 #Download JSON File from Instagram for a specific Hashtag
